@@ -7,7 +7,7 @@
 ![Django Dashboard Initial Page](https://github.com/andrepombo/entregas2/blob/master/app/static/app_assets/img/dashboard.png?raw=true)
 <br />
 
-### Ordens
+### Pedidos
 
 ![Django Dashboard Orders](https://github.com/andrepombo/entregas2/blob/master/app/static/app_assets/img/orders.png?raw=true)
 <br />
