@@ -1,0 +1,95 @@
+
+
+/* DataTable Info */
+
+.dataTables_wrapper .dataTables_info {
+    color: #4A5073;
+    font-weight: 600 !important;
+    /*font-weight: bold;*/
+    margin-top: 5px;
+	margin-left: -3px;
+	margin-bottom: 10px;
+    font-size: 0.875em;
+	
+}
+
+@media screen and (max-width: 767px){
+	.dataTables_wrapper .dataTables_info {
+		float: none;
+		text-align: center;
+		padding-left: 0rem;
+		
+	}
+}       
+
+.dataTables_wrapper .dataTables_paginate {
+   margin-top: 10px;
+}
+
+
+/*Row Hover*/
+/*table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
+	background-color: #ebf4ff;	
+}*/
+
+/*Pagination Buttons*/
+.dataTables_wrapper .dataTables_paginate .paginate_button		{
+	font-weight: 700;				/*font-bold*/
+	border-radius: .25rem;			/*rounded*/
+	border: 1px solid transparent;	/*border border-transparent*/
+	margin-bottom: 0px;
+}
+
+/*Pagination Buttons - Current selected */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current	{
+	color: #fff !important;				/*text-white*/
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06); 
+	font-weight: 700;					/*font-bold*/
+	border-radius: .25rem;				/*rounded*/
+	background: #262B40 !important;		/*bg-indigo-500*/
+	border: 1px solid transparent;		/*border border-transparent*/
+}
+
+/*Pagination Buttons - Hover */
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover		{
+	color: #fff!important;				/*text-white*/
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+	font-weight: 700;					/*font-bold*/
+	border-radius: .25rem;				/*rounded*/
+	background: #262B40 !important;		/*bg-indigo-500*/
+	border: 1px solid transparent;		/*border border-transparent*/
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover	{
+	color: #666 !important;				/*text-white*/
+	
+}
+
+/*Add padding to bottom border */
+table.dataTable.no-footer {
+	border-bottom: 1px solid #e2e8f0;	/*border-b-1 border-gray-300*/
+	
+}
+
+table#orders_table_index.dataTable.no-footer {
+	border-bottom: none;	/*border-b-1 border-gray-300*/
+	
+}
+
+/*Change colour of responsive icon*/
+table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before, table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
+	background-color: #262B40; 
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.table thead th {
+    border-top: 0 !important;
+}
+
+.table > :not(caption) > * > * {
+    padding: 0.50rem 0.4rem;;
+  }

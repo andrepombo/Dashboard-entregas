@@ -1,0 +1,16 @@
+<h3>Password reset</h3>
+
+<p>Forgotten your password? Enter your email address below, and we’ll email instructions for setting a new one.</p>
+
+<form method="post">
+	<div class="mb-4">
+		<label for="email">Seu E-mail</label>
+			<div class="input-group">
+			{% csrf_token %}
+			{{form}}
+		</div>
+	</div>	
+	
+	<button type="Submit" class="btn btn-block btn-primary">Recuperar Senha</button>
+	
+</form>

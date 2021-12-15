@@ -1,0 +1,39 @@
+{% if form %}
+    <td>{{ instance.id }}</td>
+    <td>{{ instance.criado }}</td>
+    <form>
+        {% for field in form %}
+            <td>{{ field }}</td>
+        {% endfor %}
+    </form>
+    <td>
+        <button class="btn-sm btn-danger cancel_form" style="margin-top: 5px;"><i class="fa fa-times-circle"></i></button>
+        <button class="btn-sm btn-success save_form"><i class="fa fa-save"></i></button>
+    </td>
+{% else %}
+    <td><a class="font-weight-bold"  href="{% url 'apps' app.id 'edit' %}" style="color: cornflowerblue;text-align: center;">{{ instance.id }}</a></td>
+    <td><span class="font-weight-normal">{{ instance.criado|date:"d M Y G:i" }}</span></td>
+    <td><span class="font-weight-bold">{{ instance.nome }}</span></td>
+    <td><span class="font-weight-normal">{{ instance.fone }}</span></td>
+    
+    <td>
+        <div class="btn-group">
+            <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="icon icon-sm">
+                        <span class="fas fa-ellipsis-h icon-dark"></span>
+                    </span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item edit_item" href="{% url 'apps' instance.id 'edit' %}">
+                    <span class="fas fa-edit mr-2"></span>Editar
+                </a>
+                <a class="dropdown-item text-danger delete_item"
+                   data-href="{% url 'apps' instance.id %}">
+                    <span class="fas fa-trash-alt mr-2"></span>Remover
+                </a>
+            </div>
+        </div>
+    </td>
+{% endif %}

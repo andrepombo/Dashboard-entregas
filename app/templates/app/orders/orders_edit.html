@@ -1,0 +1,102 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %}{% endblock %}
+{% block content %}
+
+<main class="content">
+
+    {% include 'includes/navigation.html' %}
+
+    
+
+    <div class="py-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                <li class="breadcrumb-item"><a href="/"><span class="fas fa-home"></span></a></li>
+                <li class="breadcrumb-item"><a href="{% url 'orders' %}">Ordens</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Ordem #{{ order.id }}</li>
+            </ol>
+        </nav>
+        <!--<div class="d-flex justify-content-between w-100 flex-wrap">
+            <div class="mb-3 mb-lg-0">
+                <h1 class="h4">Nova Etapa -</h1>
+            </div>
+        </div>-->
+    </div>
+
+    <div>
+        <div class="col-12">
+            <div class="card card-body bg-white border-light shadow-sm mb-4">
+                <h2 class="mb-0">Pedido</h2>
+                <hr>
+                <div class="col-md-12">
+                    <form action="" method="post">{% csrf_token %}
+                        <div class="row">
+                            {% for field in form %}
+                                
+                                    <div class="col-md-2 mb-3">
+                                            <div>{{ field.label_tag }}{{ field }}</div>                                 
+                                    </div>
+                                
+                            {% endfor %}
+                        </div> 
+                        <div class="mt-3">
+                            <h4>Itens do Pedido - Opcional</h4>
+                            <table class="table">
+                                {{ items.management_form }}
+                                {% for form in items.forms %}
+                                    {% if forloop.first %}
+                                        <thead>
+                                        <tr>
+                                            {% for field in form.visible_fields %}
+                                                <th>{{ field.label|capfirst }}</th>
+                                            {% endfor %}
+                                        </tr>
+                                        </thead>
+                                    {% endif %}
+                                    <tr class="{% cycle row1 row2 %} formset_row">
+                                        {% for field in form.visible_fields %}
+                                            <td>
+                                                {# Include the hidden fields in the form #}
+                                                {% if forloop.first %}
+                                                    {% for hidden in form.hidden_fields %}
+                                                        {{ hidden }}
+                                                    {% endfor %}
+                                                {% endif %}
+                                                {{ field.errors.as_ul }}
+                                                {{ field }}
+                                            </td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                        <div class="d-flex mt-4">
+                            <div class="mr-auto mb-3">
+                                <button type="submit" class="btn btn-primary">Salvar</button>
+                            </div> 
+                            
+                            <div class="ml-2 mb-2 mr-0 item-row">
+                                <a class="btn btn-danger delete_item" data-href="{% url 'orders' order.id 'single' %}">Remover</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>        
+            </div>
+        </div>
+    </div> 
+    {% include 'includes/footer.html' %}        
+</main>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="application/javascript" src="{% static 'app_assets/js/formset.js' %}"></script>
+<script type="text/javascript">
+    $('.formset_row').formset({
+        addText: 'Adicionar item',
+        deleteText: 'Remover' ,
+        prefix: 'item_set'
+    });
+</script>
+
+{% endblock %}

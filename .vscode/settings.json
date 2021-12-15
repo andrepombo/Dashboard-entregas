@@ -1,0 +1,7 @@
+{
+    "python.pythonPath": "/home/lock221/.local/share/virtualenvs/zeta-84279LB8/bin/python",
+    "editor.rulers": [
+          80,  // 1nd ruler with no color option
+          100,  // 2nd ruler with no color option
+     ],
+}

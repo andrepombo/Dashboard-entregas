@@ -1,0 +1,19 @@
+.casa{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.btn-sq-sm {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 10px;
+  }
+
+
+  .fa-moped {
+    color: white !important;
+  }
+
+ 
+
