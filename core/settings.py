@@ -5,13 +5,13 @@ from decouple import config
 from unipath import Path
 from django.contrib.messages import constants as messages
 import dj_database_url
-import environ
+# import environ
 
-env = environ.Env(
-    DEBUG=(bool, False)
-)
-# reading .env file
-environ.Env.read_env()
+# env = environ.Env(
+#     DEBUG=(bool, False)
+# )
+# # reading .env file
+# environ.Env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1','andrepombo-entregas.herokuapp.com',
 
 
 INSTALLED_APPS = [
-    'storages',
+    #'storages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -110,12 +110,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 #Local sqlite3 Database
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 #Local Postgres Database
 
@@ -131,16 +131,16 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # }
 
 #Production Postgres Database
-DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': env('RDS_DB_NAME'),
-            'USER': env('RDS_USERNAME'),
-            'PASSWORD': env('RDS_PASSWORD'),
-            'HOST': env('RDS_HOSTNAME'),
-            'PORT': '5432',
-        }
-    }
+# DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#             'NAME': env('RDS_DB_NAME'),
+#             'USER': env('RDS_USERNAME'),
+#             'PASSWORD': env('RDS_PASSWORD'),
+#             'HOST': env('RDS_HOSTNAME'),
+#             'PORT': '5432',
+#         }
+#     }
 
 
 # Database for Docker
@@ -207,13 +207,13 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'core/static'),
 
 # SMTP Configuration
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+# DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
 
 
@@ -226,14 +226,14 @@ DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
 #S3 BUCKETS CONFIG
 
-AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+# AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+# AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
 
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_S3_FILE_OVERWRITE = False
+# AWS_DEFAULT_ACL = None
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 #############################################################
