@@ -410,7 +410,7 @@ class AppView(View):
     context = {'segment': 'apps'}
 
     def get(self, request, pk=None, action=None):
-        if request.is_ajax():
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest': 
             if pk and action == 'edit':
                 edit_row = self.edit_row(pk)
                 return JsonResponse({'edit_row': edit_row})
@@ -606,7 +606,7 @@ class OrderView(View):
     context = {'segment': 'orders'}
 
     def get(self, request, pk=None, action=None):
-        if request.is_ajax():
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest': 
             if pk and action == 'edit':
                 edit_row = self.edit_row(pk)
                 return JsonResponse({'edit_row': edit_row})

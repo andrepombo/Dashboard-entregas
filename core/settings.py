@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 import os
-from decouple import config
+#from decouple import config
 from unipath import Path
 from django.contrib.messages import constants as messages
 import dj_database_url
@@ -27,9 +27,13 @@ SECRET_KEY = 'k1j57snp47cno4dee#&1_+alh#ain0jbfdu2g3zs93=ppa8b3b'
 DEBUG = True
 
 # load production server from .env
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','andrepombo-entregas.herokuapp.com',
-                 config('SERVER', default='127.0.0.1')]
+# ALLOWED_HOSTS = ['localhost', '127.0.0.1','andrepombo-entregas.herokuapp.com',
+#                  config('SERVER', default='127.0.0.1')]
+
+
 #ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+
+ALLOWED_HOSTS = ['*']
 
 
 INSTALLED_APPS = [
@@ -149,8 +153,8 @@ DATABASES = {
 #     'default': env.db()
 # }
 
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
+# db_from_env = dj_database_url.config(conn_max_age=600)
+# DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
